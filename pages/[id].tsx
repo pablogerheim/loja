@@ -1,12 +1,37 @@
-import { COOKIE_NAME_PRERENDER_DATA } from "next/dist/server/api-utils";
 import styled from "styled-components";
 
-const StyledImg1 = styled.img`
-  width: 300px;
-  height: 300px;
+const StyledImg = styled.img`
+  width: 35%;
+  height: 35%;
 `;
 const StyledDiv = styled.div`
-  display: block;
+margin:10px;
+`;
+
+const StyledTitlo = styled.div`
+display: grid;
+background-color: #b5b5ff;  
+grid-template-columns: 7fr 1fr;
+`;
+
+const StyledHone = styled.h1`
+align-items: center;
+display: flex;
+font-size: revert-layer;
+flex-direction: column;
+justify-content: center;
+margin: 25px;
+`;
+
+const StyledAhome = styled.a`
+border-left: solid;
+  border-left-color: currentcolor;
+color: #0b0b64;
+align-items: center;
+border-color: #bba8ff;
+height: 100%;
+display: flex;
+justify-content: center;
 `;
 
 export async function getStaticPaths() {
@@ -17,15 +42,12 @@ export async function getStaticPaths() {
   const paths = await data.map((item: any) => {
     return { params: { id: item.id.toString() } };
   });
-
-  console.log(paths);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps(context) {
   const { id } = context.params;
-  console.log(id);
-
+  
   const dados = await fetch(`https://fakestoreapi.com/products/${id}`).then(
     (res) => res.json()
   );
@@ -34,14 +56,16 @@ export async function getStaticProps(context) {
 }
 
 export default function details({ dados }) {
-  console.log(dados);
 
   if (!dados) return <h1>Loadind...</h1>;
   return (
-    <div>
-      <a href={`http://localhost:3000`}> Voltar para home </a>
+    <StyledDiv>
+      <StyledTitlo>
+        <StyledHone> Detales do Produto</StyledHone>
+        <StyledAhome href="."> Home </StyledAhome>
+      </StyledTitlo>
       <StyledDiv>
-        <StyledImg1 src={dados.image} />
+        <StyledImg src={dados.image} />
       </StyledDiv>
       <div>
         <h1>{dados.title}</h1>
@@ -50,6 +74,6 @@ export default function details({ dados }) {
         <p> Count: {dados.rating.count}</p>
       </div>
       <div> Price: US$ {dados.price.toLocaleString()} </div>
-    </div>
+    </StyledDiv>
   );
 }

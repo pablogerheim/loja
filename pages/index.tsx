@@ -2,15 +2,68 @@
 import useSWR from "swr";
 import Head from "next/head";
 import styled from "styled-components";
+import { v4 } from 'uuid';
+
 
 const StyledImg = styled.img` 
 width: 100px;
-height: 100px;sss
+height: 100px;
+margin-right: 10px;
 `;
 
 const StyledA = styled.a`
-margin: 20px;
-display: block
+border-left: solid;
+  border-left-color: currentcolor;
+color: #0b0b64;
+align-items: center;
+border-color: #bba8ff;
+height: 100%;
+display: flex;
+justify-content: center;
+`;
+
+const StyledDiv = styled.div`
+display: grid;
+grid: auto-flow / 1fr 1fr 1fr;
+`;
+
+const StyledDivtitlo = styled.div`
+display: grid;
+background-color: #b5b5ff;  
+grid-template-columns: 7fr 1fr;
+`;
+
+const Styledh1 = styled.h1`
+align-items: center;
+display: flex;
+font-size: revert-layer;
+flex-direction: column;
+justify-content: center;
+margin: 25px;
+`;
+
+const StyledProduct = styled.div`
+display: flex;
+flex-direction: row;
+padding: 10px;
+margin: 10px;
+  transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  :hover {  box-shadow: 0 0 11px rgba(33,33,33,.2); }
+`;
+
+const StyledDetail = styled.a`
+align-self: end;
+`
+const StyledTitleCard = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 5px;
+width: 100%;
 `;
 
 export function Users() {
@@ -21,23 +74,28 @@ export function Users() {
 
   if (error) return <p>Loading failed...</p>;
   if (!data) return <h1>Loadind...</h1>;
-  return (
-    <div className="container">
+  return (<>
+    <StyledDivtitlo>
+      <Styledh1>Loja 10 </Styledh1>
       <StyledA href="http://localhost:3000/about "> About us </StyledA>
+    </StyledDivtitlo>
+    <StyledDiv>
       {data.map((item: any) => (
-        <div>
+        <StyledProduct key={v4()}>
           <div>
             <StyledImg src={item.image} />
           </div>
-          {item.title}
-          <a href={`http://localhost:3000/${item.id}`}>
-            {" "}
-            Ir para os detales do produto
-          </a>
-        </div>
+          <StyledTitleCard>
+            {item.title}
+            <StyledDetail href={`http://localhost:3000/${item.id}`}>
+              {" "}
+              Detales do produto
+            </StyledDetail>
+          </StyledTitleCard>
+        </StyledProduct>
       ))}
-    </div>
-  );
+    </StyledDiv>
+  </>);
 }
 
 export default function Home() {
@@ -53,3 +111,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-
+import "../css/reset.css"
 function MyApp({ Component, pageProps }) {
   return (<>
   

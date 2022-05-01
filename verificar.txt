@@ -1,0 +1,2 @@
+stled componetes funciona na pagina [] do nextt ou da erro de nome da class 
+não encontrada
