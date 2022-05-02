@@ -2,8 +2,17 @@ import Link from 'next/link'
 import styled from "styled-components";
 import useSWR from 'swr';
 
-const StyledDiv = styled.div`
-margin:10px;
+const StyledP = styled.p`
+margin:15px;
+padding: 15px;
+height: 80vh;
+font-size: 20px;
+transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  :hover {  box-shadow: 0 0 11px rgba(33,33,33,.2); }
 `;
 
 const StyledDivtitlo = styled.div`
@@ -15,7 +24,7 @@ grid-template-columns: 7fr 1fr;
 const Styledh1 = styled.h1`
 align-items: center;
 display: flex;
-font-size: revert-layer;
+font-size: 46px;
 flex-direction: column;
 justify-content: center;
 margin: 25px;
@@ -49,12 +58,14 @@ const Sobre = () => {
   return <div>
 
     <StyledDivtitlo>
-      <Styledh1>Texto Estatico</Styledh1>
+      <Styledh1>Static Text</Styledh1>
       <StyledA href="."> Home </StyledA>
     </StyledDivtitlo>
-    <StyledDiv>
-      {data.description}
-    </StyledDiv>
+    <StyledP>
+      <p>{data.description}</p>
+      <br></br>
+      <p>The main objective of this project is to exercise the ways of rendering next.js.</p>
+    </StyledP>
   </div>
 
 }

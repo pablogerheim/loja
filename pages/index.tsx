@@ -3,7 +3,7 @@ import useSWR from "swr";
 import Head from "next/head";
 import styled from "styled-components";
 import { v4 } from 'uuid';
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 const StyledImg = styled.img` 
 width: 100px;
@@ -36,7 +36,7 @@ grid-template-columns: 7fr 1fr;
 const Styledh1 = styled.h1`
 align-items: center;
 display: flex;
-font-size: revert-layer;
+font-size: 46px;
 flex-direction: column;
 justify-content: center;
 margin: 25px;
@@ -56,14 +56,18 @@ margin: 10px;
 `;
 
 const StyledDetail = styled.a`
-align-self: end;
-`
+align-self: flex-end;
+`;
 const StyledTitleCard = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 padding: 5px;
 width: 100%;
+`;
+
+const StyledLoader = styled.div`
+
 `;
 
 export function Users() {
@@ -73,7 +77,7 @@ export function Users() {
   const { data, error } = useSWR(address, fetcher);
 
   if (error) return <p>Loading failed...</p>;
-  if (!data) return <h1>Loadind...</h1>;
+  if (data) return <StyledLoader> <ClipLoader/> <h1>Loadind...</h1></StyledLoader>;
   return (<>
     <StyledDivtitlo>
       <Styledh1>Loja 10 </Styledh1>
@@ -89,7 +93,7 @@ export function Users() {
             {item.title}
             <StyledDetail href={`http://localhost:3000/${item.id}`}>
               {" "}
-              Detales do produto
+              Product Details
             </StyledDetail>
           </StyledTitleCard>
         </StyledProduct>

@@ -1,0 +1,59 @@
+.detailPage {
+  margin: 10px;
+}
+
+.datailPage-header {
+  display: grid;
+  background-color: #b5b5ff;
+  grid-template-columns: 7fr 1fr;
+}
+
+.detailPage-header-title {
+  align-items: center;
+  display: flex;
+  font-size: 46px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 25px;
+}
+
+.detailPage-header-link {
+  border-left: solid;
+  border-left-color: currentcolor;
+  color: #0b0b64;
+  align-items: center;
+  border-color: #bba8ff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.datailPage-content-img {
+  width: 25%;
+  margin: 20px;
+}
+
+.datailPage-content{
+  display:flex;
+}
+.datailPage-content-detail{
+  padding:10px;
+}
+
+.datailPage-contet-detail-title{
+  font-size: 46px;
+  margin-top: 55px;
+}
+
+.datailPage-contet-detail-description{
+  margin:2% 10% 0 0;
+  padding:5px;
+}
+.datailPage-contet-detail-rate{
+  padding:5px;
+}
+.datailPage-contet-detail-coubt{
+  padding:5px;
+}
+.datailPage-contet-detail-price{
+  padding:5px;
+}
