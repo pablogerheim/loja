@@ -1,4 +1,3 @@
-// pages/index
 import useSWR from "swr";
 import Head from "next/head";
 import styled from "styled-components";
@@ -66,10 +65,6 @@ padding: 5px;
 width: 100%;
 `;
 
-const StyledLoader = styled.div`
-
-`;
-
 export function Users() {
   const address = `https://fakestoreapi.com/products?limit=10`;
   const fetcher = async (url: any) =>
@@ -77,7 +72,7 @@ export function Users() {
   const { data, error } = useSWR(address, fetcher);
 
   if (error) return <p>Loading failed...</p>;
-  if (data) return <StyledLoader> <ClipLoader/> <h1>Loadind...</h1></StyledLoader>;
+  if (!data) return <div className="loader"><ClipLoader/> <h1>Loadind...</h1></div>;
   return (<>
     <StyledDivtitlo>
       <Styledh1>Loja 10 </Styledh1>

@@ -27,33 +27,47 @@
   display: flex;
   justify-content: center;
 }
+
 .datailPage-content-img {
   width: 25%;
   margin: 20px;
 }
 
-.datailPage-content{
-  display:flex;
-}
-.datailPage-content-detail{
-  padding:10px;
+.datailPage-content {
+  display: flex;
 }
 
-.datailPage-contet-detail-title{
+.datailPage-content-detail {
+  padding: 10px;
+}
+
+.datailPage-contet-detail-title {
   font-size: 46px;
   margin-top: 55px;
 }
 
-.datailPage-contet-detail-description{
-  margin:2% 10% 0 0;
-  padding:5px;
+.datailPage-contet-detail-description {
+  margin: 2% 10% 0 0;
+  padding: 5px;
 }
-.datailPage-contet-detail-rate{
-  padding:5px;
+
+.datailPage-contet-detail-rate {
+  padding: 5px;
 }
-.datailPage-contet-detail-coubt{
-  padding:5px;
+
+.datailPage-contet-detail-coubt {
+  padding: 5px;
 }
-.datailPage-contet-detail-price{
-  padding:5px;
+
+.datailPage-contet-detail-price {
+  padding: 5px;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  gap: 20px;
 }

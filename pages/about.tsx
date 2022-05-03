@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import useSWR from 'swr';
 
@@ -53,7 +53,7 @@ const Sobre = () => {
     });
 
   if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (!data) return <div className="loader"><ClipLoader/> <h1>Loadind...</h1></div>;
 
   return <div>
 

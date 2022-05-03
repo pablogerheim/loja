@@ -1,4 +1,6 @@
 
+import ClipLoader from "react-spinners/ClipLoader";
+
 export async function getStaticPaths() {
   const data = await fetch("https://fakestoreapi.com/products?limit=10").then(
     (res) => res.json()
@@ -22,7 +24,7 @@ export async function getStaticProps(context) {
 
 export default function details({ dados }) {
 
-  if (!dados) return <h1>Loadind...</h1>;
+  if (!dados) return <div className="loader"><ClipLoader/> <h1>Loadind...</h1></div>;
   return (
     <div className="datailPage">
       <div className="datailPage-header">
