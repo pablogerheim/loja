@@ -10,3 +10,11 @@
 <h2 align="center"> Tecnologias utilizadas </h2>
 <p> Next, JS, CSS, HTML, style_components <p/>
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+
+## Link Vercel: https://loja-puce.vercel.app/
+
+## 🛠️ Construído com
+
+* [Next](https://nextjs.org/learn) - Framework 
+* [GitHub](https://github.com/) - Software
+* [Vercel](https://vercel.com) - Hospedagem
